@@ -10,6 +10,9 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "LSIFileHelper.h"
+#import "TACCurrentForecast.h"
+#import "LSICardinalDirection.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -18,6 +21,17 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *apparentTemperatureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *pressureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *probabilityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
 
 @end
 
@@ -66,7 +80,7 @@
                             withCompletion:(void (^)(CLPlacemark *, NSError *))completionHandler {
     if (location) {
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                
+        
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             if (error) {
                 completionHandler(nil, error);
@@ -114,11 +128,29 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
+    NSData *weatherData = loadFile(@"CurrentWeather.json", [LSIWeatherViewController class]);
     
     
     
     // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+    NSError *jsonError = nil;
+    NSDictionary *weatherDictionary = [NSJSONSerialization JSONObjectWithData:weatherData options:0 error:&jsonError];
+    
+    if (jsonError) {
+        NSLog(@"JSON Parsing Error %@", jsonError);
+    }
+    TACCurrentForecast *forecast = [[TACCurrentForecast alloc] initWithDictionary:weatherDictionary];
+    self.iconImageView.image = [LSIWeatherIcons weatherImageForIconName:forecast.icon];
+    self.summaryLabel.text = forecast.summary;
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f F", forecast.temperature];
+    self.windLabel.text = [NSString stringWithFormat:@"%@  %0.0f mph",[LSICardinalDirection directionForHeading:forecast.windBearing], forecast.windSpeed];
+    self.apparentTemperatureLabel.text = [NSString stringWithFormat:@"%0.0f", forecast.apparentTemperature];
+    self.humidityLabel.text = [NSString stringWithFormat:@"%0.0f%%", forecast.humidity];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%0.0f inHg", forecast.pressure];
+    self.probabilityLabel.text = [NSString stringWithFormat:@"%00.0f %%", forecast.percipProbability];
+    self.uvIndexLabel.text = [NSString stringWithFormat:@"%d", forecast.uvIndex];
+    
+    
 }
 
 - (void)updateViews {

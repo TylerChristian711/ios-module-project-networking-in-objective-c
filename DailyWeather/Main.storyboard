@@ -222,6 +222,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="apparentTemperatureLabel" destination="knr-bS-b62" id="R9d-rV-fa8"/>
+                        <outlet property="humidityLabel" destination="0Y1-R0-thi" id="wVZ-t8-vHF"/>
+                        <outlet property="iconImageView" destination="rXD-JL-sar" id="o8m-0U-jnN"/>
+                        <outlet property="locationLabel" destination="YLk-o2-per" id="WmU-Zv-x0q"/>
+                        <outlet property="pressureLabel" destination="8Ra-WL-9Xs" id="PFb-EA-3c5"/>
+                        <outlet property="probabilityLabel" destination="LWo-Yr-7um" id="gYz-ev-Oa8"/>
+                        <outlet property="summaryLabel" destination="L7b-cN-NeV" id="2FY-pY-HIR"/>
+                        <outlet property="temperatureLabel" destination="tZg-uQ-yzA" id="LaX-Jt-5A9"/>
+                        <outlet property="uvIndexLabel" destination="eoY-Dl-LkY" id="Osu-XD-bPU"/>
+                        <outlet property="windLabel" destination="ZHH-bu-icu" id="Q3X-nP-hk8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
