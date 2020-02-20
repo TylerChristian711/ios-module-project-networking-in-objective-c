@@ -36,6 +36,7 @@
 		E3BD8C3C23FDE89000688228 /* TACWeatherForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8C3B23FDE89000688228 /* TACWeatherForecast.m */; };
 		E3BD8C3F23FDEAB900688228 /* TACCurrentForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8C3E23FDEAB900688228 /* TACCurrentForecast.m */; };
 		E3BD8C4223FE045400688228 /* TACDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8C4123FE045400688228 /* TACDailyForecast.m */; };
+		E3BD8C4523FE156500688228 /* TACHourlyForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8C4423FE156500688228 /* TACHourlyForcast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		E3BD8C3E23FDEAB900688228 /* TACCurrentForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACCurrentForecast.m; sourceTree = "<group>"; };
 		E3BD8C4023FE045400688228 /* TACDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACDailyForecast.h; sourceTree = "<group>"; };
 		E3BD8C4123FE045400688228 /* TACDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACDailyForecast.m; sourceTree = "<group>"; };
+		E3BD8C4323FE156500688228 /* TACHourlyForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACHourlyForcast.h; sourceTree = "<group>"; };
+		E3BD8C4423FE156500688228 /* TACHourlyForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACHourlyForcast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 				E3BD8C3E23FDEAB900688228 /* TACCurrentForecast.m */,
 				E3BD8C4023FE045400688228 /* TACDailyForecast.h */,
 				E3BD8C4123FE045400688228 /* TACDailyForecast.m */,
+				E3BD8C4323FE156500688228 /* TACHourlyForcast.h */,
+				E3BD8C4423FE156500688228 /* TACHourlyForcast.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				BD69316923FD90D100C0DF09 /* LSIErrors.m in Sources */,
 				BD69315E23FD907800C0DF09 /* LSIWeatherViewController.m in Sources */,
+				E3BD8C4523FE156500688228 /* TACHourlyForcast.m in Sources */,
 				BD69317223FD918B00C0DF09 /* LSIWeatherIcons.m in Sources */,
 				BD69314823FD905300C0DF09 /* main.m in Sources */,
 				BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */,
